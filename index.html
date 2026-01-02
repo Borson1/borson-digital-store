@@ -3,260 +3,99 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>BÓRẞÕÑ WÉB🌐</title>
+<title>BÓRẞÕÑ Market – Digital Templates</title>
+
+<meta name="description" content="Buy premium calculator, AI tools, earning & landing page templates. Clean UI, instant demo & cart system.">
+<meta name="keywords" content="digital templates, ai tools, landing page, earning website, calculator app">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-/* --- THEME VARIABLES --- */
-:root {
-  --accent:#00eaff;
-  --header:#000;
-  --bg:#0f172a;
-  --card:#1e293b;
-  --text:#e2e8f0;
-  --sub:#94a3b8;
-  --border:#334155;
+:root{
+--accent:#00eaff;
+--bg:#0f172a;
+--card:rgba(255,255,255,0.05);
+--text:#e2e8f0;
+--border:rgba(255,255,255,0.12);
+}
+body{margin:0;font-family:Segoe UI,sans-serif;background:var(--bg);color:var(--text);transition:1.5s}
+body.dark{--bg:#020617}
+
+.top-header{
+position:sticky;top:0;z-index:100;
+display:flex;gap:10px;align-items:center;
+padding:12px 16px;background:#000;
+box-shadow:0 0 20px rgba(0,255,255,.2)
+}
+.brand{font-weight:800;color:#fff}
+.search-box{flex:1;display:flex}
+.search-box input{flex:1;padding:10px;border-radius:8px 0 0 8px;border:none}
+.search-box button{padding:10px 16px;border:none;background:var(--accent);font-weight:700}
+
+.theme-toggle{
+background:none;border:1px solid var(--accent);
+color:#fff;border-radius:8px;padding:8px 12px;cursor:pointer
 }
 
-body.dark {
-  --accent:#4adeff;
-  --header:#000;
-  --bg:#020617;
-  --card:rgba(255,255,255,0.05);
-  --text:#f1f5f9;
-  --sub:#cbd5e1;
-  --border:rgba(255,255,255,0.1);
+.main-grid{
+display:grid;grid-template-columns:230px 1fr;
+gap:20px;max-width:1200px;margin:20px auto;padding:0 15px
+}
+.sidebar{
+background:var(--card);backdrop-filter:blur(12px);
+padding:15px;border-radius:14px;border:1px solid var(--border)
+}
+.sb-title{color:var(--accent);font-weight:700;margin-bottom:10px}
+.sb-item{
+padding:10px;border-radius:8px;margin-bottom:8px;
+cursor:pointer;border:1px solid var(--border)
+}
+.sb-item:hover{background:var(--accent);color:#000}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:18px
+}
+.card{
+background:var(--card);border:1px solid var(--border);
+border-radius:20px;padding:16px;
+backdrop-filter:blur(14px);
+box-shadow:0 0 30px rgba(0,255,255,.08);
+transition:.4s
+}
+.card:hover{transform:translateY(-6px)}
+.card img{width:100%;border-radius:14px;margin-bottom:10px}
+
+.old-price{text-decoration:line-through;color:#ff5c5c}
+.price{font-size:26px;font-weight:800;color:var(--accent)}
+
+.btn{width:100%;padding:10px;border-radius:10px;border:none;font-weight:700;margin-top:8px;cursor:pointer}
+.btn-cart{background:var(--accent);color:#000}
+.btn-buy{background:#3b82f6;color:#fff}
+.btn-prev{background:none;border:1px solid var(--accent);color:var(--accent)}
+
+.demo-label{text-align:center;margin-top:10px;color:var(--accent);font-weight:700}
+
+footer{
+margin-top:40px;padding:20px;text-align:center;
+background:#000;color:#fff
 }
 
-/* --- GLOBAL STYLE --- */
-* {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-body {background:var(--bg);color:var(--text);transition:.3s}
-
-/* --- HEADER --- */
-.top-header {
-  background:var(--header);
-  padding:12px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:sticky;
-  top:0;
-  z-index:100;
-  box-shadow:0 2px 12px rgba(0,0,0,0.4);
+.cart-drawer{
+position:fixed;right:-320px;top:0;width:300px;height:100%;
+background:#020617;border-left:2px solid var(--accent);
+padding:15px;transition:.3s;z-index:2000
 }
+.cart-drawer.active{right:0}
 
-.brand {color:#fff;font-size:20px;font-weight:700}
-
-.search-box {flex:0.5;display:flex}
-.search-box input {flex:1;padding:10px;border:none;outline:none;border-radius:6px 0 0 6px;font-size:15px}
-.search-box button {padding:10px 18px;background:var(--accent);border:none;cursor:pointer;border-radius:0 6px 6px 0;color:#000;font-weight:600;font-size:15px}
-
-.theme-toggle {
-  background:none;
-  border:1px solid var(--accent);
-  color:#fff;
-  padding:6px 12px;
-  border-radius:6px;
-  cursor:pointer;
-  font-size:14px;
-}
-
-/* --- LAYOUT --- */
-.main-grid {
-  display:grid;
-  grid-template-columns:240px 1fr;
-  max-width:1200px;
-  margin:20px auto;
-  gap:22px;
-  padding:0 15px;
-}
-
-.sidebar {
-  background:var(--card);
-  padding:15px;
-  border-radius:12px;
-  height:fit-content;
-  box-shadow:0 2px 10px rgba(0,255,255,0.1);
-  border:1px solid var(--border);
-}
-
-.sb-title {font-size:16px;font-weight:600;margin-bottom:12px;color:var(--accent)}
-
-.sb-item {
-  padding:10px 12px;
-  border:1px solid var(--border);
-  border-radius:6px;
-  margin-bottom:10px;
-  cursor:pointer;
-  font-weight:500;
-  color:var(--sub);
-  transition:0.3s;
-}
-.sb-item:hover {background:var(--accent);color:#000}
-
-/* --- CARDS --- */
-.cards {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:18px;
-}
-
-.card {
-  background:rgba(255,255,255,0.03);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:18px;
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  box-shadow:0 8px 32px rgba(0,255,255,0.08);
-  transition:0.3s;
-  position:relative;
-  overflow:hidden;
-}
-.card:hover {
-  transform:translateY(-5px);
-  box-shadow:0 12px 40px rgba(0,255,255,0.12);
-}
-
-/* Glass reflection overlay */
-.card::before {
-  content:"";
-  position:absolute;
-  top:0;left:-100%;
-  width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent);
-  transform:skewX(-25deg);
-  transition:0.7s;
-}
-.card:hover::before {left:100%}
-
-.card img {
-  width:100%;
-  height:auto;
-  object-fit:contain;
-  border-radius:12px;
-  background:rgba(0,255,255,0.02);
-  padding:8px;
-  margin-bottom:10px;
-}
-
-.old-price {font-size:14px;color:#ff4d4d;text-decoration:line-through;margin-bottom:6px}
-.price {font-size:24px;font-weight:800;color:var(--accent);margin-bottom:10px}
-
-.btn {padding:10px;width:100%;border-radius:10px;font-weight:700;cursor:pointer;margin-top:8px;transition:0.3s}
-.btn-cart {background:var(--accent);border:none;color:#000;font-size:15px}
-.btn-buy {background:#4a89dc;border:none;color:#fff;font-size:15px}
-.btn-prev {background:none;border:1px solid var(--accent);color:var(--accent);font-size:14px}
-
-.demo-label {
-  text-align:center;
-  margin-top:14px;
-  font-size:14px;
-  font-weight:600;
-  color:var(--accent);
-}
-
-/* --- STATS --- */
-.stats-row {
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  margin-top:12px;
-  font-size:14px;
-  font-weight:600;
-  color:var(--sub);
-}
-.stats-row span {cursor:pointer;transition:0.2s}
-.stats-row span:hover {color:var(--accent)}
-
-/* --- CART DRAWER --- */
-.cart-drawer {
-  position:fixed;
-  right:-320px;
-  top:0;
-  height:100vh;
-  width:300px;
-  background:var(--card);
-  padding:18px;
-  transition:.3s;
-  z-index:2000;
-  border-left:2px solid var(--accent);
-  box-shadow:-5px 0 25px rgba(0,255,255,0.15);
-  overflow-y:auto;
-}
-.cart-drawer.active {right:0}
-
-.cart-header {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size:18px;
-  font-weight:700;
-  margin-bottom:15px;
-  color:var(--accent);
-}
-
-.cart-item {
-  padding:12px;
-  border:1px solid var(--border);
-  border-radius:8px;
-  margin-bottom:12px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size:14px;
-  color:var(--text);
-}
-.cart-item button {
-  background:#ff2e2e;
-  border:none;
-  color:#fff;
-  padding:5px 10px;
-  border-radius:6px;
-  cursor:pointer;
-  font-size:12px;
-}
-
-/* --- COMMENTS MODAL --- */
-.comment-modal {
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.75);
-  z-index:3000;
-  justify-content:center;
-  align-items:flex-end;
-  padding-bottom:90px;
-}
-.comment-modal.active {display:flex}
-
-.comment-box {
-  width:95%;
-  max-width:520px;
-  background:var(--card);
-  padding:18px;
-  border-radius:18px;
-  border:2px solid var(--accent);
-  box-shadow:0 0 25px rgba(0,255,255,0.15);
-  max-height:70vh;
-  overflow-y:auto;
-}
-
-.comment-box h2 {color:var(--accent);font-size:20px;margin-bottom:10px}
-.comment-list p {background:rgba(255,255,255,0.06);padding:10px;border-radius:8px;margin-bottom:10px;font-size:14px}
-
-.comment-input {display:flex;gap:10px;margin-top:12px}
-.comment-input input {flex:1;padding:10px;border-radius:8px;border:none;outline:none;font-size:15px}
-.comment-input button {padding:10px 16px;background:var(--accent);border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px;color:#000}
-
-/* Footer */
-footer {
-  text-align:center;
-  margin-top:40px;
-  padding:20px;
-  background:var(--header);
-  font-size:14px;
-  color:#fff;
+.popup{
+position:fixed;bottom:20px;left:20px;
+background:var(--card);backdrop-filter:blur(10px);
+padding:12px 16px;border-radius:14px;
+border:1px solid var(--border);
+box-shadow:0 0 20px rgba(0,255,255,.2);
+display:none;z-index:3000
 }
 </style>
 </head>
@@ -264,214 +103,140 @@ footer {
 <body>
 
 <div class="top-header">
-  <div class="brand">BÓRẞÕÑ Market</div>
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search demo templates...">
-    <button onclick="search()">Search</button>
-  </div>
-  <button id="themeBtn" class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
-  <button class="theme-toggle" onclick="openCart()"><i class="fas fa-shopping-cart"></i> (<span id="cartCount">0</span>)</button>
+<div class="brand">BÓRẞÕÑ Market</div>
+<div class="search-box">
+<input id="searchInput" placeholder="Search demo templates...">
+<button onclick="search()">Search</button>
+</div>
+<button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+<button class="theme-toggle" onclick="openCart()">🛒 (<span id="cartCount">0</span>)</button>
 </div>
 
 <div class="main-grid">
-  <aside class="sidebar">
-    <div class="sb-title">Categories</div>
-    <div class="sb-item" onclick="filter('all')">All Demos</div>
-    <div class="sb-item" onclick="filter('calc')">Calculator</div>
-    <div class="sb-item" onclick="filter('earn')">Earning</div>
-    <div class="sb-item" onclick="filter('ai')">AI Tools</div>
-  </aside>
+<aside class="sidebar">
+<div class="sb-title">Categories</div>
+<div class="sb-item" onclick="filter('all')">All</div>
+<div class="sb-item" onclick="filter('calc')">Calculator</div>
+<div class="sb-item" onclick="filter('earn')">Earning</div>
+<div class="sb-item" onclick="filter('ai')">AI Tools</div>
+<div class="sb-item" onclick="filter('market')">Marketing</div>
+</aside>
 
-  <main>
-    <div class="cards">
-      <div class="card" data-cat="calc">
-        <i class="fa-regular fa-heart like-btn" onclick="toggleLike(this)"></i>
-        <img src="https://i.ibb.co/prL2vTcq/file-0000000090c872069558dc8df1375632.png"/>
-        <div class="old-price">150₹</div>
-        <div class="price">99₹</div>
-        <button class="btn btn-cart" onclick="addCart('Calculator Demo',99)">Add to Cart</button>
-        <button class="btn btn-buy" onclick="buy('https://payhip.com/b/sItyb')">Buy Now</button>
-        <button class="btn btn-prev" onclick="preview('https://borson1.github.io/calculator-demo/')">Preview</button>
-        <div class="rating" onclick="rate(this)"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></div>
-        <div class="stats-row">❤️ <span id="likeCount">320</span> ⭐ <span>4.8</span> 👥 <span>320</span></div>
-        <div class="demo-label">Calculator Demo</div>
-      </div>
+<main>
+<div class="cards">
 
-      <div class="card" data-cat="earn">
-        <i class="fa-regular fa-heart like-btn" onclick="toggleLike(this)"></i>
-        <img src="https://i.ibb.co/FbxWrqzn/file-0000000012e07206967508d534046c0f.png"/>
-        <div class="old-price">399₹</div>
-        <div class="price">299₹</div>
-        <button class="btn btn-cart" onclick="addCart('Earning Demo',299)">Add to Cart</button>
-        <button class="btn btn-buy" onclick="buy('https://payhip.com/b/MwmK3')">Buy Now</button>
-        <button class="btn btn-prev" onclick="preview('https://borson1.github.io/earning-demo/')">Preview</button>
-        <div class="rating" onclick="rate(this)"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star-half-alt"></i></div>
-        <div class="stats-row">❤️ <span>2300</span> ⭐ <span>4.9</span> 👥 <span>5400</span></div>
-        <div class="demo-label">Earning Demo</div>
-      </div>
-
-      <div class="card" data-cat="ai">
-        <i class="fa-regular fa-heart like-btn" onclick="toggleLike(this)"></i>
-        <img src="https://i.ibb.co/kgrjY9PC/file-00000000184c7206a6cf4783278b7743.png"/>
-        <div class="old-price">999₹</div>
-        <div class="price">449₹</div>
-        <button class="btn btn-cart" onclick="addCart('AI Demo',449)">Add to Cart</button>
-        <button class="btn btn-buy" onclick="buy('https://payhip.com/b/YPxuA')">Buy Now</button>
-        <button class="btn btn-prev" onclick="preview('https://borson1.github.io/ai-demo/')">Preview</button>
-        <div class="rating" onclick="rate(this)"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></div>
-        <div class="stats-row">❤️ <span>210</span> ⭐ <span>5.0</span> 👥 <span>210</span></div>
-        <div class="demo-label">AI Demo</div>
-      </div>
-    </div>
-  </main>
+<!-- Calculator -->
+<div class="card" data-cat="calc">
+<img src="https://i.ibb.co/prL2vTcq/file-0000000090c872069558dc8df1375632.png">
+<div class="old-price">150₹</div>
+<div class="price">99₹</div>
+<button class="btn btn-cart" onclick="addCart('Calculator Demo',99)">Add to Cart</button>
+<button class="btn btn-buy" onclick="buy('https://payhip.com/b/sItyb')">Buy</button>
+<button class="btn btn-prev" onclick="preview('https://borson1.github.io/calculator-demo/')">Preview</button>
+<div class="demo-label">Calculator Demo</div>
 </div>
 
-<footer>© 2026 – 2027 • BÓRẞÕÑ 🌐</footer>
+<!-- Earning -->
+<div class="card" data-cat="earn">
+<img src="https://i.ibb.co/FbxWrqzn/file-0000000012e07206967508d534046c0f.png">
+<div class="old-price">399₹</div>
+<div class="price">299₹</div>
+<button class="btn btn-cart" onclick="addCart('Earning Demo',299)">Add to Cart</button>
+<button class="btn btn-buy" onclick="buy('https://payhip.com/b/MwmK3')">Buy</button>
+<button class="btn btn-prev" onclick="preview('https://borson1.github.io/earning-demo/')">Preview</button>
+<div class="demo-label">Earning Demo</div>
+</div>
+
+<!-- AI -->
+<div class="card" data-cat="ai">
+<img src="https://i.ibb.co/kgrjY9PC/file-00000000184c7206a6cf4783278b7743.png">
+<div class="old-price">999₹</div>
+<div class="price">449₹</div>
+<button class="btn btn-cart" onclick="addCart('AI Demo',449)">Add to Cart</button>
+<button class="btn btn-buy" onclick="buy('https://payhip.com/b/YPxuA')">Buy</button>
+<button class="btn btn-prev" onclick="preview('https://borson1.github.io/ai-demo/')">Preview</button>
+<div class="demo-label">AI Demo</div>
+</div>
+
+<!-- AI SAAS -->
+<div class="card" data-cat="ai">
+<img src="https://i.ibb.co/VWL7fq0G/file-000000002f2c72098be6053bc2ffb546.png">
+<div class="old-price">999₹</div>
+<div class="price">449₹</div>
+<button class="btn btn-cart" onclick="addCart('AI-SaaS Demo',449)">Add to Cart</button>
+<button class="btn btn-buy" onclick="buy('https://payhip.com/b/i8kMf')">Buy</button>
+<button class="btn btn-prev" onclick="preview('https://borson1.github.io/AI-SaaS/')">Preview</button>
+<div class="demo-label">AI-SaaS Demo</div>
+</div>
+
+<!-- Market Landing -->
+<div class="card" data-cat="market">
+<img src="https://i.ibb.co/wDHDmzB/file-00000000d74072069084ebe780a43fa1.png">
+<div class="old-price">999₹</div>
+<div class="price">449₹</div>
+<button class="btn btn-cart" onclick="addCart('Market Landing',449)">Add to Cart</button>
+<button class="btn btn-buy" onclick="buy('https://payhip.com/b/wL74T')">Buy</button>
+<button class="btn btn-prev" onclick="preview('https://borson1.github.io/market-landing/')">Preview</button>
+<div class="demo-label">Market Landing</div>
+</div>
+
+</div>
+</main>
+</div>
+
+<footer>
+Need help? Customer Service →  
+<a href="mailto:borsonmarket@gmail.com" style="color:#00eaff">borsonmarket@gmail.com</a><br>
+© 2026 – 2027 • BÓRẞÕÑ Market
+</footer>
 
 <div class="cart-drawer" id="cartDrawer">
-  <div class="cart-header">Your Cart <button onclick="closeCart()">✖</button></div>
-  <div id="cartItems"></div>
-  <div class="price">Total: <span id="totalPrice">0</span>₹</div>
+<h3>Your Cart</h3>
+<div id="cartItems"></div>
+<b>Total: <span id="totalPrice">0</span>₹</b>
 </div>
 
-<div class="comment-modal" id="commentModal">
-  <div class="comment-box">
-    <h2>User Reviews</h2>
-    <div class="comment-list" id="fakeCommentList"></div>
-    <div class="comment-input">
-      <input id="commentInput" placeholder="Write a comment..."/>
-      <button onclick="sendComment()">Send</button>
-    </div>
-    <button class="btn btn-prev" onclick="closeComments()">Close</button>
-  </div>
-</div>
+<div class="popup" id="popup"></div>
 
 <script>
-// --- THEME TOGGLE ---
-function toggleTheme(){
-  document.body.classList.toggle("dark");
-  const isDark = document.body.classList.contains("dark");
-  localStorage.setItem("theme", isDark ? "dark" : "sun");
-  document.getElementById("themeBtn").innerHTML = isDark ? "☀ Sun Mode" : "🌙 Dark Mode";
-}
-window.onload = () => {
-  const saved = localStorage.getItem("theme");
-  if(saved === "dark"){
-    document.body.classList.add("dark");
-    document.getElementById("themeBtn").innerHTML = "☀ Sun Mode";
-  } else {
-    document.body.classList.remove("dark");
-    localStorage.setItem("theme","sun");
-    document.getElementById("themeBtn").innerHTML = "🌙 Dark Mode";
-  }
-};
+let cart=[],colors=["#4adeff","#38bdf8","#06b6d4","#2dd4bf"],i=0;
+setInterval(()=>{document.documentElement.style.setProperty("--accent",colors[i++%colors.length])},7000);
 
-// --- ACCENT COLOR LOOP (smooth + light) ---
-const autoColors = ["#4adeff","#38bdf8","#06b6d4","#2dd4bf","#99f6e4","#5eead4"];
-let ai = 0;
-setInterval(()=>{
-  document.documentElement.style.setProperty("--accent", autoColors[ai]);
-  ai = (ai + 1) % autoColors.length;
-},4500);
-
-// --- CART SYSTEM ---
-let cart = [];
-function openCart(){
-  document.getElementById("cartDrawer").classList.add("active");
-}
-function closeCart(){
-  document.getElementById("cartDrawer").classList.remove("active");
-}
-function addCart(name, price){
-  cart.push({name, price});
-  renderCart();
-}
+function toggleTheme(){document.body.classList.toggle("dark")}
+function openCart(){cartDrawer.classList.toggle("active")}
+function addCart(n,p){cart.push({n,p});renderCart()}
 function renderCart(){
-  document.getElementById("cartCount").innerText = cart.length;
-  let total = 0;
-  let html = "";
-  cart.forEach((item, i)=>{
-    total += item.price;
-    html += `<div class="cart-item">${item.name} - ${item.price}₹ <button onclick="removeCart(${i})">Remove</button></div>`;
-  });
-  document.getElementById("cartItems").innerHTML = html;
-  document.getElementById("totalPrice").innerText = total;
+cartItems.innerHTML="";let t=0;
+cart.forEach(i=>{t+=i.p;cartItems.innerHTML+=`${i.n} - ${i.p}₹<br>`});
+cartCount.innerText=cart.length;totalPrice.innerText=t
 }
-function removeCart(i){
-  cart.splice(i, 1);
-  renderCart();
+function filter(c){
+document.querySelectorAll(".card").forEach(x=>{
+x.style.display=(c=="all"||x.dataset.cat==c)?"block":"none"
+})
 }
-
-// --- PREVIEW & BUY ---
-function preview(url){
-  window.open(url, "_blank");
-}
-function buy(url){
-  window.open(url, "_blank");
-}
-
-// --- LIKE BUTTON (fake but real feel) ---
-function toggleLike(btn){
-  fakeLikes++;
-  btn.classList.toggle("fa-solid");
-  document.getElementById("likeCount").innerText = fakeLikes;
-  btn.style.transform="scale(1.4)";
-  setTimeout(()=>btn.style.transform="scale(1)",200);
-}
-
-// --- RATING STAR FEEDBACK ---
-function rate(box){
-  let stars = box.querySelectorAll("i");
-  stars.forEach((star, i)=>{
-    star.onclick = ()=>{
-      stars.forEach(s=>{s.classList.remove("fa-solid"); s.classList.add("fa-regular")});
-      for(let j=0;j<=i;j++){
-        stars[j].classList.add("fa-solid");
-      }
-    }
-  });
-}
-
-// --- COMMENT SYSTEM (fake send, real append) ---
-const fakeComments = [
-  "John: Amazing product!",
-  "Liam: Fully worth it",
-  "Sophia: Best UI!",
-  "Olivia: Loved it!",
-  "Noah: 5 stars from me"
-];
-fakeCommentList.innerHTML = fakeComments.map(c=>`<p>${c}</p>`).join("");
-
-function openComments(){
-  document.getElementById("commentModal").classList.add("active");
-}
-function closeComments(){
-  document.getElementById("commentModal").classList.remove("active");
-}
-function sendComment(){
-  let input = document.getElementById("commentInput");
-  let text = input.value.trim();
-  if(text){
-    document.getElementById("fakeCommentList").innerHTML += `<p>You: ${text}</p>`;
-    input.value="";
-  }
-}
-
-// --- FILTER SYSTEM FIX ---
-function filter(cat){
-  document.querySelectorAll(".card").forEach(c=>{
-    c.style.display = (cat==="all" || c.getAttribute("data-cat")===cat) ? "block" : "none";
-  });
-}
-
-// --- SEARCH FIX ---
 function search(){
-  const q = document.getElementById("searchInput").value.toLowerCase();
-  document.querySelectorAll(".card").forEach(c=>{
-    c.style.display = c.innerText.toLowerCase().includes(q) ? "block" : "none";
-  });
+let q=searchInput.value.toLowerCase();
+document.querySelectorAll(".card").forEach(c=>{
+c.style.display=c.innerText.toLowerCase().includes(q)?"block":"none"
+})
 }
+function preview(u){open(u)}
+function buy(u){open(u)}
+
+const buyers=["Someone bought AI Demo","New order: Calculator","Market Landing sold"];
+setInterval(()=>{
+popup.innerText=buyers[Math.floor(Math.random()*buyers.length)];
+popup.style.display="block";
+setTimeout(()=>popup.style.display="none",3000)
+},9000);
 </script>
 
+<!--
+Google Search Console:
+1. Verify domain via DNS
+2. Submit sitemap.xml
+3. Request indexing for main page
+-->
 </body>
 </html>
