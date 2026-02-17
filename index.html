@@ -3,99 +3,273 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>BÓRẞÕÑ Market – Digital Templates</title>
+<title>BÓRẞÕÑ Market – Premium Digital Assets</title>
 
 <meta name="description" content="Buy premium calculator, AI tools, earning & landing page templates. Clean UI, instant demo & cart system.">
-<meta name="keywords" content="digital templates, ai tools, landing page, earning website, calculator app">
+<meta name="keywords" content="digital templates, ai tools, landing page, earning website, calculator app, secure chat">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
+/* --- CSS Variables & Reset --- */
 :root{
---accent:#00eaff;
---bg:#0f172a;
---card:rgba(255,255,255,0.05);
---text:#e2e8f0;
---border:rgba(255,255,255,0.12);
+    --accent: #00eaff;
+    --accent-glow: rgba(0, 234, 255, 0.4);
+    --bg: #0f172a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text: #e2e8f0;
+    --border: rgba(255, 255, 255, 0.12);
 }
-body{margin:0;font-family:Segoe UI,sans-serif;background:var(--bg);color:var(--text);transition:1.5s}
-body.dark{--bg:#020617}
+body.dark { --bg: #000000; }
 
-.top-header{
-position:sticky;top:0;z-index:100;
-display:flex;gap:10px;align-items:center;
-padding:12px 16px;background:#000;
-box-shadow:0 0 20px rgba(0,255,255,.2)
-}
-.brand{font-weight:800;color:#fff}
-.search-box{flex:1;display:flex}
-.search-box input{flex:1;padding:10px;border-radius:8px 0 0 8px;border:none}
-.search-box button{padding:10px 16px;border:none;background:var(--accent);font-weight:700}
+* { box-sizing: border-box; }
 
-.theme-toggle{
-background:none;border:1px solid var(--accent);
-color:#fff;border-radius:8px;padding:8px 12px;cursor:pointer
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.5s ease;
+    overflow-x: hidden;
+    position: relative;
 }
 
-.main-grid{
-display:grid;grid-template-columns:230px 1fr;
-gap:20px;max-width:1200px;margin:20px auto;padding:0 15px
-}
-.sidebar{
-background:var(--card);backdrop-filter:blur(12px);
-padding:15px;border-radius:14px;border:1px solid var(--border)
-}
-.sb-title{color:var(--accent);font-weight:700;margin-bottom:10px}
-.sb-item{
-padding:10px;border-radius:8px;margin-bottom:8px;
-cursor:pointer;border:1px solid var(--border)
-}
-.sb-item:hover{background:var(--accent);color:#000}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:18px
-}
-.card{
-background:var(--card);border:1px solid var(--border);
-border-radius:20px;padding:16px;
-backdrop-filter:blur(14px);
-box-shadow:0 0 30px rgba(0,255,255,.08);
-transition:.4s
-}
-.card:hover{transform:translateY(-6px)}
-.card img{width:100%;border-radius:14px;margin-bottom:10px}
-
-.old-price{text-decoration:line-through;color:#ff5c5c}
-.price{font-size:26px;font-weight:800;color:var(--accent)}
-
-.btn{width:100%;padding:10px;border-radius:10px;border:none;font-weight:700;margin-top:8px;cursor:pointer}
-.btn-cart{background:var(--accent);color:#000}
-.btn-buy{background:#3b82f6;color:#fff}
-.btn-prev{background:none;border:1px solid var(--accent);color:var(--accent)}
-
-.demo-label{text-align:center;margin-top:10px;color:var(--accent);font-weight:700}
-
-footer{
-margin-top:40px;padding:20px;text-align:center;
-background:#000;color:#fff
+/* --- ✨ SUBTLE BUBBLE BACKGROUND EFFECT --- */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: 
+        radial-gradient(circle at 15% 50%, rgba(0, 234, 255, 0.08) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.08) 0%, transparent 25%);
+    z-index: -1;
+    animation: floatBubbles 10s ease-in-out infinite alternate;
+    pointer-events: none;
 }
 
-.cart-drawer{
-position:fixed;right:-320px;top:0;width:300px;height:100%;
-background:#020617;border-left:2px solid var(--accent);
-padding:15px;transition:.3s;z-index:2000
+@keyframes floatBubbles {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-20px) scale(1.1); }
 }
-.cart-drawer.active{right:0}
 
-.popup{
-position:fixed;bottom:20px;left:20px;
-background:var(--card);backdrop-filter:blur(10px);
-padding:12px 16px;border-radius:14px;
-border:1px solid var(--border);
-box-shadow:0 0 20px rgba(0,255,255,.2);
-display:none;z-index:3000
+/* --- Header & Navigation --- */
+.top-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.brand { font-size: 1.5rem; font-weight: 800; color: #fff; letter-spacing: 1px; }
+.brand span { color: var(--accent); }
+
+.search-box { flex: 1; display: flex; max-width: 500px; margin: 0 auto; }
+.search-box input {
+    flex: 1; padding: 10px 20px; border-radius: 50px 0 0 50px;
+    border: 1px solid var(--border); background: #1e293b; color: white; outline: none; font-family: inherit;
+}
+.search-box button {
+    padding: 10px 20px; border-radius: 0 50px 50px 0; border: none;
+    background: var(--accent); color: #000; font-weight: bold; cursor: pointer; transition: 0.3s;
+}
+.search-box button:hover { background: #fff; }
+
+.nav-btn {
+    background: transparent; border: 1px solid var(--border);
+    color: white; padding: 8px 12px; border-radius: 8px; cursor: pointer;
+    transition: 0.3s; display: flex; align-items: center; gap: 8px; font-weight: 600;
+}
+.nav-btn:hover { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
+.login-btn { background: var(--accent); color: black; border: none; font-weight: bold; }
+
+/* --- Layout Grid --- */
+.main-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 25px;
+    max-width: 1250px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    height: fit-content;
+    position: sticky;
+    top: 90px;
+    backdrop-filter: blur(10px);
+}
+.sb-title { color: var(--accent); font-weight: 700; margin-bottom: 15px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;}
+.sb-item {
+    padding: 12px; border-radius: 10px; margin-bottom: 8px;
+    cursor: pointer; transition: 0.3s; display: flex; justify-content: space-between; font-size: 0.95rem;
+}
+.sb-item:hover, .sb-item.active { background: var(--accent); color: #000; font-weight: bold; transform: translateX(5px); }
+
+/* --- Product Cards --- */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 15px;
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 234, 255, 0.15);
+    border-color: var(--accent);
+}
+
+.card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.price-tag { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+.old-price { text-decoration: line-through; color: #ff5c5c; font-size: 0.9rem; }
+.price { font-size: 1.6rem; font-weight: 800; color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
+
+.btn {
+    width: 100%; padding: 12px; border-radius: 12px; border: none;
+    font-weight: 700; margin-top: 8px; cursor: pointer; transition: 0.2s; font-family: inherit;
+}
+.btn-cart { background: linear-gradient(90deg, #00eaff, #00a8ff); color: #000; }
+.btn-buy { background: #3b82f6; color: white; }
+.btn-buy:hover { background: #2563eb; box-shadow: 0 0 15px rgba(59, 130, 246, 0.5); }
+.btn-prev { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+.btn-prev:hover { background: rgba(0, 234, 255, 0.1); }
+
+.demo-label { text-align: center; margin-top: 15px; font-size: 0.9rem; color: #94a3b8; font-weight: 600; }
+
+/* --- Footer --- */
+footer {
+    margin-top: 80px; padding: 40px; text-align: center;
+    background: #020617; border-top: 1px solid var(--border);
+    color: #94a3b8;
+}
+
+/* --- SUPER GLOW FLOATING BUTTON --- */
+.order-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #00eaff, #0072ff);
+    color: white;
+    padding: 16px 35px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    border: 2px solid #fff;
+    box-shadow: 0 0 20px #00eaff, 0 0 40px #0072ff; 
+    animation: pulseGlow 1.5s infinite alternate;
+    z-index: 2000;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 10px;
+    text-transform: uppercase;
+    transition: transform 0.3s;
+}
+.order-float:hover { transform: scale(1.1) rotate(-2deg); }
+.order-float i { animation: shakeIcon 2s infinite; }
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 15px #00eaff; transform: scale(1); }
+    100% { box-shadow: 0 0 50px #00eaff, 0 0 30px #ffffff; transform: scale(1.05); }
+}
+@keyframes shakeIcon {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(-15deg); }
+    20%, 40% { transform: rotate(15deg); }
+    50% { transform: rotate(0deg); }
+}
+
+/* --- Modals (Common) --- */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px);
+    z-index: 2500; display: none; justify-content: center; align-items: center;
+}
+.modal-box {
+    background: #1e293b; padding: 30px; border-radius: 20px;
+    width: 90%; max-width: 450px; text-align: center;
+    border: 1px solid var(--accent);
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,234,255,0.15);
+    max-height: 90vh; overflow-y: auto;
+}
+.close-btn {
+    position: absolute; top: 15px; right: 20px; background: none; border: none;
+    color: white; font-size: 1.8rem; cursor: pointer; transition: 0.3s;
+}
+.close-btn:hover { color: #ff5c5c; transform: rotate(90deg); }
+
+/* --- Form Styles --- */
+.form-input {
+    width: 100%; padding: 12px; margin-bottom: 12px; border-radius: 8px;
+    border: 1px solid #333; background: #0f172a; color: white;
+    font-family: inherit; box-sizing: border-box; 
+}
+.form-input:focus { outline: none; border-color: #00eaff; box-shadow: 0 0 8px rgba(0, 234, 255, 0.3); }
+
+.contact-btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; padding: 12px; margin-top: 10px; border-radius: 10px;
+    text-decoration: none; font-weight: bold; color: white; cursor: pointer; border: none; font-size: 1rem;
+}
+.whatsapp-btn { background: linear-gradient(45deg, #25d366, #128c7e); }
+.mail-btn { background: transparent; border: 1px solid #ea4335; color: #ea4335; margin-top: 10px; }
+.mail-btn:hover { background: rgba(234, 67, 53, 0.1); }
+
+/* --- Cart Drawer --- */
+.cart-drawer {
+    position: fixed; right: -350px; top: 0; width: 320px; height: 100%;
+    background: #0f172a; border-left: 2px solid var(--accent);
+    padding: 25px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 3000;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+}
+.cart-drawer.active { right: 0; }
+
+/* --- Popup --- */
+.popup {
+    position: fixed; bottom: 30px; left: 30px;
+    background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px);
+    padding: 15px 20px; border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    color: white; display: none; z-index: 3000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4); animation: slideIn 0.5s ease;
+}
+@keyframes slideIn { from{transform: translateX(-100%); opacity:0;} to{transform: translateX(0); opacity:1;} }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .main-grid { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .top-header { flex-wrap: wrap; }
+    .search-box { order: 3; width: 100%; margin-top: 10px; max-width: none; }
+    .order-float { bottom: 20px; right: 20px; padding: 12px 20px; font-size: 0.9rem; }
 }
 </style>
 </head>
@@ -103,140 +277,185 @@ display:none;z-index:3000
 <body>
 
 <div class="top-header">
-<div class="brand">BÓRẞÕÑ Market</div>
-<div class="search-box">
-<input id="searchInput" placeholder="Search demo templates...">
-<button onclick="search()">Search</button>
-</div>
-<button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-<button class="theme-toggle" onclick="openCart()">🛒 (<span id="cartCount">0</span>)</button>
+    <div class="brand">BÓRẞÕÑ <span>Market</span></div>
+    
+    <div class="search-box">
+        <input id="searchInput" placeholder="Search templates...">
+        <button onclick="search()"><i class="fas fa-search"></i></button>
+    </div>
+
+    <button class="nav-btn theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+    <button class="nav-btn" onclick="openCart()"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></button>
+    
+    <button class="nav-btn login-btn" onclick="openLogin()"><i class="fas fa-user"></i> Login</button>
 </div>
 
 <div class="main-grid">
-<aside class="sidebar">
-<div class="sb-title">Categories</div>
-<div class="sb-item" onclick="filter('all')">All</div>
-<div class="sb-item" onclick="filter('calc')">Calculator</div>
-<div class="sb-item" onclick="filter('earn')">Earning</div>
-<div class="sb-item" onclick="filter('ai')">AI Tools</div>
-<div class="sb-item" onclick="filter('market')">Marketing</div>
-</aside>
+    
+    <aside class="sidebar">
+        <div class="sb-title">Categories</div>
+        <div class="sb-item active" onclick="filter('all', this)">All Templates</div>
+        <div class="sb-item" onclick="filter('calc', this)">Calculator</div>
+        <div class="sb-item" onclick="filter('earn', this)">Earning Apps</div>
+        <div class="sb-item" onclick="filter('ai', this)">AI Tools</div>
+        <div class="sb-item" onclick="filter('market', this)">Marketing & Chat</div>
+    </aside>
 
-<main>
-<div class="cards">
+    <main>
+        <div class="cards">
 
-<!-- Calculator -->
-<div class="card" data-cat="calc">
-<img src="https://i.ibb.co/prL2vTcq/file-0000000090c872069558dc8df1375632.png">
-<div class="old-price">150₹</div>
-<div class="price">99₹</div>
-<button class="btn btn-cart" onclick="addCart('Calculator Demo',99)">Add to Cart</button>
-<button class="btn btn-buy" onclick="buy('https://payhip.com/b/sItyb')">Buy</button>
-<button class="btn btn-prev" onclick="preview('https://borson1.github.io/calculator-demo/')">Preview</button>
-<div class="demo-label">Calculator Demo</div>
+            <div class="card" data-cat="market">
+                <img src="https://i.ibb.co/DgPDRDYT/file-00000000633471fab8e6aa027d3727a3.png" alt="Secure Chat">
+                <div class="price-tag">
+                    <div class="old-price">1200₹</div>
+                    <div class="price">899₹</div>
+                </div>
+                <button class="btn btn-cart" onclick="addCart('Secure WhatsApp Chat', 899)">Add to Cart</button>
+                <button class="btn btn-buy" onclick="window.open('https://payhip.com/b/Op1Bt', '_blank')">Buy Now</button>
+                <button class="btn btn-prev" onclick="window.open('https://borson1.github.io/Secure-Whatsapp-chat/', '_blank')">Live Preview</button>
+                <div class="demo-label">Secure WhatsApp Chat System</div>
+            </div>
+
+            <div class="card" data-cat="ai">
+                <img src="https://i.ibb.co/VWL7fq0G/file-000000002f2c72098be6053bc2ffb546.png">
+                <div class="price-tag"><div class="old-price">999₹</div><div class="price">449₹</div></div>
+                <button class="btn btn-cart" onclick="addCart('AI-SaaS Demo',449)">Add to Cart</button>
+                <button class="btn btn-buy" onclick="window.open('https://payhip.com/b/i8kMf', '_blank')">Buy Now</button>
+                <button class="btn btn-prev" onclick="window.open('https://borson1.github.io/AI-SaaS/', '_blank')">Preview</button>
+                <div class="demo-label">AI-SaaS Platform</div>
+            </div>
+
+            <div class="card" data-cat="market">
+                <img src="https://i.ibb.co/wDHDmzB/file-00000000d74072069084ebe780a43fa1.png">
+                <div class="price-tag"><div class="old-price">999₹</div><div class="price">449₹</div></div>
+                <button class="btn btn-cart" onclick="addCart('Market Landing',449)">Add to Cart</button>
+                <button class="btn btn-buy" onclick="window.open('https://payhip.com/b/wL74T', '_blank')">Buy Now</button>
+                <button class="btn btn-prev" onclick="window.open('https://borson1.github.io/market-landing/', '_blank')">Preview</button>
+                <div class="demo-label">Market Landing Page</div>
+            </div>
+
+            <div class="card" data-cat="ai">
+                <img src="https://i.ibb.co/kgrjY9PC/file-00000000184c7206a6cf4783278b7743.png">
+                <div class="price-tag"><div class="old-price">999₹</div><div class="price">449₹</div></div>
+                <button class="btn btn-cart" onclick="addCart('AI Demo',449)">Add to Cart</button>
+                <button class="btn btn-buy" onclick="window.open('https://payhip.com/b/YPxuA', '_blank')">Buy Now</button>
+                <button class="btn btn-prev" onclick="window.open('https://borson1.github.io/ai-demo/', '_blank')">Preview</button>
+                <div class="demo-label">AI Tools Bundle</div>
+            </div>
+
+             <div class="card" data-cat="earn">
+                <img src="https://i.ibb.co/FbxWrqzn/file-0000000012e07206967508d534046c0f.png">
+                <div class="price-tag"><div class="old-price">399₹</div><div class="price">299₹</div></div>
+                <button class="btn btn-cart" onclick="addCart('Earning Demo',299)">Add to Cart</button>
+                <button class="btn btn-buy" onclick="window.open('https://payhip.com/b/MwmK3', '_blank')">Buy Now</button>
+                <button class="btn btn-prev" onclick="window.open('https://borson1.github.io/earning-demo/', '_blank')">Preview</button>
+                <div class="demo-label">Earning App UI</div>
+            </div>
+
+            <div class="card" data-cat="calc">
+                <img src="https://i.ibb.co/prL2vTcq/file-0000000090c872069558dc8df1375632.png">
+                <div class="price-tag"><div class="old-price">150₹</div><div class="price">99₹</div></div>
+                <button class="btn btn-cart" onclick="addCart('Calculator Demo',99)">Add to Cart</button>
+                <button class="btn btn-buy" onclick="window.open('https://payhip.com/b/sItyb', '_blank')">Buy Now</button>
+                <button class="btn btn-prev" onclick="window.open('https://borson1.github.io/calculator-demo/', '_blank')">Preview</button>
+                <div class="demo-label">Scientific Calculator</div>
+            </div>
+
+        </div>
+    </main>
 </div>
 
-<!-- Earning -->
-<div class="card" data-cat="earn">
-<img src="https://i.ibb.co/FbxWrqzn/file-0000000012e07206967508d534046c0f.png">
-<div class="old-price">399₹</div>
-<div class="price">299₹</div>
-<button class="btn btn-cart" onclick="addCart('Earning Demo',299)">Add to Cart</button>
-<button class="btn btn-buy" onclick="buy('https://payhip.com/b/MwmK3')">Buy</button>
-<button class="btn btn-prev" onclick="preview('https://borson1.github.io/earning-demo/')">Preview</button>
-<div class="demo-label">Earning Demo</div>
+<div class="glow-wrapper">
+    <button class="order-float" onclick="openOrderModal()">
+        <i class="fas fa-bolt"></i> Order Custom Web
+    </button>
 </div>
 
-<!-- AI -->
-<div class="card" data-cat="ai">
-<img src="https://i.ibb.co/kgrjY9PC/file-00000000184c7206a6cf4783278b7743.png">
-<div class="old-price">999₹</div>
-<div class="price">449₹</div>
-<button class="btn btn-cart" onclick="addCart('AI Demo',449)">Add to Cart</button>
-<button class="btn btn-buy" onclick="buy('https://payhip.com/b/YPxuA')">Buy</button>
-<button class="btn btn-prev" onclick="preview('https://borson1.github.io/ai-demo/')">Preview</button>
-<div class="demo-label">AI Demo</div>
+<div class="modal-overlay" id="orderModal">
+    <div class="modal-box">
+        <button class="close-btn" onclick="closeModal('orderModal')">&times;</button>
+        
+        <h2 style="color:var(--accent); text-transform:uppercase; letter-spacing:1px; margin-top:0;">🚀 Start Project</h2>
+        <p style="color:#ccc; font-size:0.9rem; margin-bottom:15px;">Please fill in the project details below:</p>
+        
+        <form id="customOrderForm" onsubmit="sendToWhatsApp(event)">
+            <input type="text" id="cName" placeholder="Your Full Legal Name" required class="form-input">
+            
+            <select id="cType" class="form-input">
+                <option value="Earning App">Earning App (Earning Website)</option>
+                <option value="Portfolio">Portfolio / Personal Site</option>
+                <option value="E-Commerce">Online Store (Shop)</option>
+                <option value="AI Tool">AI Tool Website</option>
+                <option value="Other">Other (Custom Idea)</option>
+            </select>
+
+            <input type="number" id="cBudget" placeholder="Your Budget (₹)" required class="form-input">
+            
+            <textarea id="cDetails" placeholder="Describe your project idea in detail..." rows="3" required class="form-input"></textarea>
+
+            <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid #ff4d4d; padding: 12px; border-radius: 8px; margin-bottom: 15px; text-align: left; max-height: 120px; overflow-y: auto;">
+                <p style="color: #ff4d4d; font-size: 0.8rem; font-weight: bold; margin-bottom: 5px; text-transform: uppercase;">⚠️ Terms & Conditions:</p>
+                <ol style="color: #bbb; font-size: 0.75rem; padding-left: 20px; line-height: 1.5; margin:0;">
+                    <li>This is a final order. Payment is strictly **NON-REFUNDABLE** under any circumstances.</li>
+                    <li>Project type cannot be changed after confirmation.</li>
+                    <li>We do not build websites for illegal or fraudulent activities.</li>
+                    <li>This digital consent will serve as proof in any legal dispute.</li>
+                </ol>
+            </div>
+
+            <label style="display: flex; align-items: flex-start; gap: 10px; color: white; font-size: 0.8rem; cursor: pointer; margin-bottom: 15px; text-align: left;">
+                <input type="checkbox" id="termsCheck" required style="margin-top: 3px; accent-color: #00eaff; min-width: 18px; min-height: 18px;">
+                <span>I have read the terms and agree to the Non-Refundable Policy.</span>
+            </label>
+
+            <button type="submit" class="contact-btn whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Confirm & Send Order
+            </button>
+            
+            <button type="button" onclick="sendToMail()" class="contact-btn mail-btn">
+                <i class="fas fa-envelope"></i> Email Us
+            </button>
+        </form>
+    </div>
 </div>
 
-<!-- AI SAAS -->
-<div class="card" data-cat="ai">
-<img src="https://i.ibb.co/VWL7fq0G/file-000000002f2c72098be6053bc2ffb546.png">
-<div class="old-price">999₹</div>
-<div class="price">449₹</div>
-<button class="btn btn-cart" onclick="addCart('AI-SaaS Demo',449)">Add to Cart</button>
-<button class="btn btn-buy" onclick="buy('https://payhip.com/b/i8kMf')">Buy</button>
-<button class="btn btn-prev" onclick="preview('https://borson1.github.io/AI-SaaS/')">Preview</button>
-<div class="demo-label">AI-SaaS Demo</div>
-</div>
-
-<!-- Market Landing -->
-<div class="card" data-cat="market">
-<img src="https://i.ibb.co/wDHDmzB/file-00000000d74072069084ebe780a43fa1.png">
-<div class="old-price">999₹</div>
-<div class="price">449₹</div>
-<button class="btn btn-cart" onclick="addCart('Market Landing',449)">Add to Cart</button>
-<button class="btn btn-buy" onclick="buy('https://payhip.com/b/wL74T')">Buy</button>
-<button class="btn btn-prev" onclick="preview('https://borson1.github.io/market-landing/')">Preview</button>
-<div class="demo-label">Market Landing</div>
-</div>
-
-</div>
-</main>
+<div class="modal-overlay" id="loginModal">
+    <div class="modal-box">
+        <button class="close-btn" onclick="closeModal('loginModal')">&times;</button>
+        <h2 style="color:var(--accent);">Welcome Back</h2>
+        <p style="color:#aaa;">Login to access your dashboard</p>
+        
+        <button class="contact-btn" onclick="loginWithGoogle()" style="background:#fff; color:#333; margin-bottom:10px;">
+            <i class="fab fa-google"></i> Login with Google
+        </button>
+        <button class="contact-btn" style="background:#3b82f6;">
+            <i class="fas fa-envelope"></i> Login with Email
+        </button>
+    </div>
 </div>
 
 <footer>
-Need help? Customer Service →  
-<a href="mailto:borsonmarket@gmail.com" style="color:#00eaff">borsonmarket@gmail.com</a><br>
-© 2026 – 2027 • BÓRẞÕÑ Market
+    Need help? <a href="mailto:borsonmarket@gmail.com" style="color:var(--accent)">borsonmarket@gmail.com</a><br>
+    © 2026 – BÓRẞÕÑ Market • All Rights Reserved
 </footer>
 
 <div class="cart-drawer" id="cartDrawer">
-<h3>Your Cart</h3>
-<div id="cartItems"></div>
-<b>Total: <span id="totalPrice">0</span>₹</b>
+    <h3 style="color:var(--accent)">Shopping Cart</h3>
+    <div id="cartItems" style="margin-top:20px;"></div>
+    <div style="margin-top:20px; border-top:1px solid #333; padding-top:15px;">
+        <b>Total: <span id="totalPrice">0</span>₹</b>
+    </div>
+    <button class="btn btn-buy" style="margin-top:20px;">Checkout Now</button>
+    <button class="btn btn-prev" onclick="openCart()" style="margin-top:10px;">Close</button>
 </div>
 
 <div class="popup" id="popup"></div>
 
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
 <script>
-let cart=[],colors=["#4adeff","#38bdf8","#06b6d4","#2dd4bf"],i=0;
-setInterval(()=>{document.documentElement.style.setProperty("--accent",colors[i++%colors.length])},7000);
-
-function toggleTheme(){document.body.classList.toggle("dark")}
-function openCart(){cartDrawer.classList.toggle("active")}
-function addCart(n,p){cart.push({n,p});renderCart()}
-function renderCart(){
-cartItems.innerHTML="";let t=0;
-cart.forEach(i=>{t+=i.p;cartItems.innerHTML+=`${i.n} - ${i.p}₹<br>`});
-cartCount.innerText=cart.length;totalPrice.innerText=t
-}
-function filter(c){
-document.querySelectorAll(".card").forEach(x=>{
-x.style.display=(c=="all"||x.dataset.cat==c)?"block":"none"
-})
-}
-function search(){
-let q=searchInput.value.toLowerCase();
-document.querySelectorAll(".card").forEach(c=>{
-c.style.display=c.innerText.toLowerCase().includes(q)?"block":"none"
-})
-}
-function preview(u){open(u)}
-function buy(u){open(u)}
-
-const buyers=["Someone bought AI Demo","New order: Calculator","Market Landing sold"];
-setInterval(()=>{
-popup.innerText=buyers[Math.floor(Math.random()*buyers.length)];
-popup.style.display="block";
-setTimeout(()=>popup.style.display="none",3000)
-},9000);
-</script>
-
-<!--
-Google Search Console:
-1. Verify domain via DNS
-2. Submit sitemap.xml
-3. Request indexing for main page
--->
-</body>
-</html>
+    // --- 1. FIREBASE CONFIGURATION (Your Exact Keys) ---
+    const firebaseConfig = {
+        apiKey: "AIzaSyAiaeVKI CMHYMu_Zz_KBin9XUZM4A7G3LQ",
+        authDomain: "borson-market-1dfdf.firebaseapp.co
